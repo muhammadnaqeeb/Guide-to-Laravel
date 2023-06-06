@@ -34,7 +34,7 @@ In Laravel, routes allow users to route the appropriate request to the desired c
 
 In Laravel, routes are created inside the web.php and api.php files. Laravel comes with two routes by default: one for the WEB and one for the API.
 
-![](Aspose.Words.6e0fe7f4-0769-4e33-b54b-f401b612b7eb.001.png)
+![](https://github.com/muhammadnaqeeb/Guide-to-Laravel/blob/main/Images/001.png)
 ```
 Route::get('/greeting', function () {
      return 'Hello World';
@@ -113,7 +113,7 @@ e.g,
 ```
 php artisan make:controller LoginController
 ```
-![](Aspose.Words.6e0fe7f4-0769-4e33-b54b-f401b612b7eb.002.png)
+![](https://github.com/muhammadnaqeeb/Guide-to-Laravel/blob/main/Images/002.png)
 
 Then make function in controller class (controller which you have created) which returns a view
 ```
@@ -184,11 +184,11 @@ Create View and controller and define route
 - **Go to [http://localhost/phpmyadmin/](http://localhost/phpmyadmin/)**
 - **Create a database in phpmyadmin**
 
-![](Aspose.Words.6e0fe7f4-0769-4e33-b54b-f401b612b7eb.003.png)
+![](https://github.com/muhammadnaqeeb/Guide-to-Laravel/blob/main/Images/003.png)
 
 - **Go to .env file and add your database name there**
 
-![](Aspose.Words.6e0fe7f4-0769-4e33-b54b-f401b612b7eb.004.png)
+![](https://github.com/muhammadnaqeeb/Guide-to-Laravel/blob/main/Images/004.png)
 
 - **Run following commands in terminal**
 ```
@@ -205,7 +205,7 @@ php artisan make:migration createJoblistTable
 ```
 This will create a php file inside database/migrations directory name like (data\_create\_joblist\_table).
 
-![](Aspose.Words.6e0fe7f4-0769-4e33-b54b-f401b612b7eb.005.png)
+![](https://github.com/muhammadnaqeeb/Guide-to-Laravel/blob/main/Images/005.png)
 
 - **Specify columns(attributes) of table in up() function in the php file created in previous step**
 ```
@@ -237,7 +237,7 @@ php artisan migrate
 ```
 This will send/migrate this table to phpmyadmin
 
-![](Aspose.Words.6e0fe7f4-0769-4e33-b54b-f401b612b7eb.006.png)
+![](https://github.com/muhammadnaqeeb/Guide-to-Laravel/blob/main/Images/006.png)
 
 It will remove **date** and **create** from start and **table** from end of file name and remaining will be table name in database
 
