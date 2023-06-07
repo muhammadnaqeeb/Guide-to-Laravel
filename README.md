@@ -203,7 +203,7 @@ This will create some table automatically in your database
 ```
 php artisan make:migration createJoblistTable
 ```
-This will create a php file inside database/migrations directory name like (data\_create\_joblist\_table).
+This will create a php file inside database/migrations directory name like (data_create_joblist_table).
 
 ![](https://github.com/muhammadnaqeeb/Guide-to-Laravel/blob/main/Images/005.png)
 
@@ -217,14 +217,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('joblist', function (Blueprint $table) {
-            $table->id('job\_id');
-            $table->string('job\_title',100);
-            $table->string('job\_type',100);
-            $table->string('job\_description',1000);
-            $table->string('job\_location',100);
-            $table->string('job\_salary',100);
-            $table->string('job\_application\_deadline',100);
-            $table->string('job\_contact',100);
+            $table->id('job_id');
+            $table->string('job_title',100);
+            $table->string('job_type',100);
+            $table->string('job_description',1000);
+            $table->string('job_location',100);
+            $table->string('job_salary',100);
+            $table->string('job_application_deadline',100);
+            $table->string('job_contact',100);
             $table->timestamps();
         });
     }
@@ -257,7 +257,7 @@ class joblistModel extends Model
     use HasFactory;
     // these lines
     protected $table='joblist'; // joblist is table name
-    private $primary = 'job\_id';
+    private $primary = 'job_id';
 }
 ```
 - **Go to controller file and add another function**
@@ -265,7 +265,7 @@ class joblistModel extends Model
 use App\Models\joblistModel;
    public function DisplayJobList(){
         $joblistmodel = joblistModel::all();
-        print\_r($joblistmodel);
+        print_r($joblistmodel);
     }
 ```
 - **Go to web,php and define route**
@@ -296,7 +296,7 @@ Displaying data using loop in view
                <div class="row g-4">
                   <div class="col-sm-12 ">
                       <div class="text-start ps-4">
-                         <h5 class="mb-3">{{$job->job\_title}}</h5>
+                         <h5 class="mb-3">{{$job->job_title}}</h5>
                </div>
              </div>
            </div>
@@ -309,7 +309,7 @@ Simplified
 ```
 @foreach($jobListData as $job)
    <div class="text-start ps-4">
-      <h5 class="mb-3">{{$job->job\_title}}</h5>                      
+      <h5 class="mb-3">{{$job->job_title}}</h5>                      
    </div>
 @endforeach
 ```
@@ -330,9 +330,9 @@ Route::get('/addJob', [JobListController::class,'AddJobb']);
        <form action="{{url('/')}}/jobAddedSuccessfully" method="post">
         <!-- this is security check -->
         @csrf
-        <label for="job\_title">Job Title</label>
+        <label for="job_title">Job Title</label>
         <input type="text" Name="jobTitle" id="jobTitle" />
-        <label for="job\_location">Job Location</label>
+        <label for="job_location">Job Location</label>
         <input type="text" Name="jobLocation" id="jobLocation" />
         <button >Submit</button>
     </form>
@@ -348,8 +348,8 @@ In this route we write logic for adding data into database
 ```
     public function jobAddedSuccessfullyy(Request $req){
         $job = new joblistModel();
-        $job->job\_title = $req['jobTitle']
-        $job->job\_location = $re['jobLocation'];
+        $job->job_title = $req['jobTitle']
+        $job->job_location = $req['jobLocation'];
         $job->save()
         echo "Job Added Successfully"
     
