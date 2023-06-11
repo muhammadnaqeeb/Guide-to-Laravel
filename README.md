@@ -355,3 +355,91 @@ In this route we write logic for adding data into database
     
 ```
 
+# Session in Laravel
+
+### Accessing Session Data
+```
+$value = $request->session()->get('key');
+```
+### Accessing all Session Data
+```
+$value = $request->session()->all('key');
+```
+### Check if an item exist in the Session
+```
+$value = $request->session()->has('key');
+```
+### Storing Session Data
+```
+$request->session()->put('key', 'value');
+```
+### Deleting Session Data
+```
+$request->session()->forget('key');
+```
+```
+$request->session()->forget(['key1', ‘key2’]);
+```
+```
+$request->session()->flush();
+```
+
+### Steps to make session in Laravel
+
+**Step 1:**
+
+Make a controller called SessionController.
+php artisan make:controller SessionController
+
+**Step 2:**
+
+Add following methods in the sessionController
+```
+class SessionController extends Controller
+{
+    public function accessSessionData(Request $request) {
+        if($request->session()->has('my_name'))
+           echo $request->session()->get('my_name');
+        else
+           echo 'No data in the session';
+     }
+     public function storeSessionData(Request $request) {
+        $request->session()->put('my_name','Naqeeb');
+        echo "Data has been added to session";
+     }
+     public function deleteSessionData(Request $request) {
+        $request->session()->forget('my_name');
+        echo "Data has been removed from session.";
+     }
+}
+```
+
+**Step 3:**
+
+Add following routes in web.php
+```
+Route::get('session/get', [SessionController::class,'accessSessionData']);
+Route::get('session/set', [SessionController::class,'storeSessionData']);
+Route::get('session/remove', [SessionController::class,'deleteSessionData']);
+```
+
+**Step 4:**
+
+Visit the following URL to set data in session.
+```
+http://localhost:8000/session/set
+```
+
+**Step 5:**
+
+Visit the following URL to get data from session.
+```
+http://localhost:8000/session/get
+```
+
+**Step 6:**
+
+ Visit the following URL to remove session data.
+```
+http://localhost:8000/session/remove
+```
